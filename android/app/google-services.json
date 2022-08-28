@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1010085492894",
+    "project_id": "note-f05b2",
+    "storage_bucket": "note-f05b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010085492894:android:b1824c91e3ef9959da238f",
+        "android_client_info": {
+          "package_name": "com.WitcherCode.notes_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1010085492894-19dke8qjbet6njcstcdr92higrjiaaqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeq3uSYOMNg8vjLSpKlhsofZVBMm5a5HQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1010085492894-19dke8qjbet6njcstcdr92higrjiaaqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
