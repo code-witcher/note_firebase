@@ -30,13 +30,32 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Stream<User?> s = FirebaseAuth.instance.authStateChanges();
 
+  final _primary = {
+    50: const Color(0xFF80c9ff),
+    100: const Color(0xFF6bc0ff),
+    200: const Color(0xFF55b7ff),
+    300: const Color(0xFF40aeff),
+    400: const Color(0xFF2ba5ff),
+    500: const Color(0xFF2795e6),
+    600: const Color(0xFF2284cc),
+    700: const Color(0xFF1e73b3),
+    800: const Color(0xFF1a6399),
+    900: const Color(0xFF165380),
+  };
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Note',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: MaterialColor(0xFF2BA5FF, _primary),
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: Colors.white,
+              ),
+        ),
       ),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
@@ -53,3 +72,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+// #2BA5FF

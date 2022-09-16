@@ -10,11 +10,13 @@ class NoteWidget extends StatelessWidget {
     required this.body,
     Key? key,
     required this.index,
+    required this.image,
   }) : super(key: key);
 
   final String body;
   final String title;
   final int index;
+  final String image;
   final QueryDocumentSnapshot<Map<dynamic, dynamic>> document;
 
   @override
@@ -32,13 +34,31 @@ class NoteWidget extends StatelessWidget {
             'doc': document,
             'title': title,
             'body': body,
+            'image': image,
           });
         },
         child: Column(
           children: [
+            if (image.isNotEmpty)
+              Container(
+                constraints:
+                    const BoxConstraints(maxHeight: 250, minHeight: 50),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(image),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
             Row(
               children: [
-                Text(title),
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueGrey.shade700,
+                      ),
+                ),
                 const Spacer(),
                 IconButton(
                   onPressed: () {
@@ -56,7 +76,14 @@ class NoteWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Text(body),
+            Text(
+              body,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 10,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: Colors.blueGrey.shade600,
+                  ),
+            ),
           ],
         ),
       ),

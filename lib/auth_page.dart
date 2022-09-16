@@ -79,6 +79,7 @@ class _AuthPageState extends State<AuthPage> {
           {
             'username': username,
             'email': email,
+            'userImage': null,
           },
         );
       }
@@ -254,6 +255,7 @@ class _AuthPageState extends State<AuthPage> {
                           {
                             'username': userCredential?.user?.displayName,
                             'email': userCredential?.user?.email,
+                            'userImage': null,
                           },
                         );
                       } on FirebaseAuthException catch (e) {

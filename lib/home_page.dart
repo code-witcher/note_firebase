@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'add_note.dart';
 import 'note_widget.dart';
@@ -51,17 +52,15 @@ class _HomePageState extends State<HomePage> {
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
                           )
-                        : GridView.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 8,
-                              crossAxisSpacing: 8,
-                            ),
+                        : MasonryGridView.count(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 8,
+                            crossAxisSpacing: 8,
                             itemBuilder: (ctx, i) => NoteWidget(
                               document: documents[i],
                               index: i,
                               title: documents[i]['title'],
+                              image: documents[i]['image'],
                               body: documents[i]['body'],
                             ),
                             itemCount: documents.length,
@@ -79,8 +78,8 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// class GridCust extends StatelessWidget {
-//   const GridCust({Key? key}) : super(key: key);
+// class GridCustom extends StatelessWidget {
+//   const GridCustom({Key? key}) : super(key: key);
 //
 //   @override
 //   Widget build(BuildContext context) {
